@@ -7,7 +7,7 @@ dotenv.config();
 const appServer = express();
 appServer.use(cors());
 appServer.use('/' , (req, res) => {
-    res.status(200).json({ message: 'Email is already registered' });
+    res.status(200).json({ message: 'we are connected' });
 });
 async function startApolloServer() {
   appServer.listen( process.env.PORT, () => {
