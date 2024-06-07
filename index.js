@@ -7,7 +7,7 @@ dotenv.config();
 const appServer = express();
 appServer.use(cors());
 appServer.use('/' , (req, res) => {
-    res.status(200).json({ message: 'we are connected 2' });
+    res.status(200).json({ message: 'we are connected 3' });
 });
 async function startApolloServer() {
   appServer.listen( process.env.PORT, () => {
