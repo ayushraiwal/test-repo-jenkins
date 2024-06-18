@@ -12,14 +12,28 @@ pipeline {
                 sh 'docker build . -t chucknorris' // Replace with your image name
             }
         }
-        stage('Stop Docker Container') {
+         stage('Stop Docker Container') {
             steps {
-                sh 'docker stop $(docker ps -aq --filter "name=chucknorris")' // Replace with your container name
+                script {
+                    def container_id = sh(script: "docker ps -aq --filter name=chucknorris", returnStdout: true).trim()
+                 if (container_id) {
+                        sh "docker stop ${container_id}"
+                    } else {
+                        echo "No container found to stop."
+                    }
+                }
             }
         }
         stage('Remove Docker Container') {
             steps {
-                sh 'docker rm $(docker ps -aq --filter "name=chucknorris")' // Replace with your container name
+                script {
+                    def container_id = sh(script: "docker ps -aq --filter name=chucknorris", returnStdout: true).trim()
+                  if (container_id) {
+                        sh "docker rm ${container_id}"
+                    } else {
+                        echo "No container found to remove."
+                    }
+                }
             }
         }
         stage('Run Node.js Application') {
