@@ -2,24 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Docker Build') {
+        stage('Checkout Code') {
             steps {
-                sh 'docker build -t gymlogy-new-image1:latest .' // Replace with your git clone command
+                sh 'git clone https://github.com/your-username/your-nodejs-repo.git .' // Replace with your git clone command
             }
         }
-        stage('Stop docker container') {
+        stage('Build Docker Image') {
             steps {
-                sh 'docker stop $(docker ps -aq --filter name=node-app-con)' // Replace with your image name
+                sh 'docker build -t your-nodejs-app-image:latest .' // Replace with your image name
             }
         }
-        stage('Remove docker container') {
+        stage('Run Node.js Application') {
             steps {
-                sh 'docker rm $(docker ps -aq --filter name=node-app)'
-            }
-        }
-         stage('Run docker container') {
-            steps {
-                sh 'docker run -d --name node-app -p 40005:40005 gymlogy-new-image:latest'
+                sh 'docker run -d --name node-app -p 8000:8000 your-nodejs-app-image:latest'
             }
         }
     }
