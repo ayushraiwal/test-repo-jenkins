@@ -1,7 +1,15 @@
 pipeline {
     agent any
+stages {
+	    
+	stage('gitclone') {
+	    steps {
+		git 'https://github.com/ayushraiwal/test-repo-jenkins.git'
+	    }
+	}
 
-        stage('Build Docker Image') {
+	
+	stage('Build Docker Image') {
             steps {
                 sh 'docker build -t your-nodejs-app-image:latest .' // Replace with your image name
 
