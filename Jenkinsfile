@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                sh 'git clone https://github.com/your-username/your-nodejs-repo.git .' // Replace with your git clone command
+                sh 'git clone https://github.com/ayushraiwal/test-repo-jenkins.git .' // Replace with your git clone command
             }
         }
         stage('Build Docker Image') {
