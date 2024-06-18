@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t chucknorris' // Replace with your image name
+                sh 'docker build -t chucknorris .' // Replace with your image name
             }
         }
          stage('Stop Docker Container') {
