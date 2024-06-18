@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout Code') {
+        stage('Git Clone') {
             steps {
                git 'https://github.com/betterstack-community/chucknorris' // Replace with your git clone command
             }
