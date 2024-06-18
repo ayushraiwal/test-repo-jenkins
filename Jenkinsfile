@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-               sh 'git clone https://github.com/betterstack-community/chucknorris' // Replace with your git clone command
+               git 'https://github.com/betterstack-community/chucknorris' // Replace with your git clone command
             }
         }
         stage('Build Docker Image') {
