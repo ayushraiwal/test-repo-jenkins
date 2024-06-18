@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Run Node.js Application') {
             steps {
-                sh 'docker run -d --name node-app -p 8000:8000 your-nodejs-app-image:latest'
+                sh 'docker run -d --name node-app -p 40005:40005 your-nodejs-app-image:latest'
             }
         }
     }
