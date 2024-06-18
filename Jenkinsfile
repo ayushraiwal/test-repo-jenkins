@@ -1,12 +1,12 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Checkout Code') {
-            steps {
-                sh 'git clone https://github.com/betterstack-community/chucknorris' // Replace with your git clone command
-            }
-        }
+    //stages {
+        //stage('Checkout Code') {
+            //steps {
+               //sh 'git clone https://github.com/betterstack-community/chucknorris' // Replace with your git clone command
+            //}
+        //}
         stage('Build Docker Image') {
             steps {
                 sh 'docker build . -t chucknorris' // Replace with your image name
